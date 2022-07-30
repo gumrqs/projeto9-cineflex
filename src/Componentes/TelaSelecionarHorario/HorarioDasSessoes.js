@@ -1,9 +1,12 @@
-export default function HorarioDasSessoes({horaSessoes}){
+import { Link } from "react-router-dom";
 
+export default function HorarioDasSessoes({horaSessoes, idsessoes}){
+    let idSessoes= `/assentos/${idsessoes}`
     return(
         <>
-            <div className="horasecao">{horaSessoes}</div>
-        
+            <Link to={idSessoes} className="horasecao">
+            <div >{horaSessoes}</div>
+            </Link>
         </>
     )
 

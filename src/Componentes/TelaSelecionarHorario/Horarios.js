@@ -12,7 +12,7 @@ export default function Horarios({disponiveis, data, dia}){
             {dia} - {data}
         </div>
         <div className="horas">
-        {disponiveis.map(horario => <HorarioDasSessoes horaSessoes={horario.name}/>)}
+        {disponiveis.map(horario => <HorarioDasSessoes horaSessoes={horario.name} idsessoes={horario.id}/>)}
         </div>
     </div>
     </>

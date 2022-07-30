@@ -1,4 +1,4 @@
-import TelaSelecionarFilmes from "./TelaSelecionarFilmes/TelaSelecionarFilmes.js";
+import TelaSelecionarFilmes from "../TelaSelecionarFilmes/TelaSelecionarFilmes.js";
 import './style.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TelaSelecionarHorario from "../TelaSelecionarHorario/TelaSelecionarHorario.js";
