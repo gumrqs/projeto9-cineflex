@@ -1,0 +1,90 @@
+.filmes{
+    width: 100%;
+    height: 110px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filmes p{
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28px;
+    text-align: center;
+
+}
+.horas{
+    
+    left: 23px;
+    margin-right: 8px;
+    display: flex;
+
+}
+
+.horasecao{
+    width: 82px;
+    height: 43px;
+    background-color: #E8833A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-right:8px;
+    margin-bottom: 22px;
+    border-radius: 3px;
+    box-shadow: 0px 2px 4px 2px rgba(245, 120, 17, 0.1);
+}
+
+.horasecao {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+
+
+}
+.dados-filme{
+    margin-left: 25px;
+}
+.data{
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    text-align: left;
+    margin-bottom: 22px;
+}
+.dados-footer{
+    width: 100%;
+    height: 117px;
+    display: flex;
+    align-items: center;
+    background-color: #DFE6ED;
+}
+.fundo-img-footer{
+    padding: 8px;
+    width: 48px;
+    height: 72px;
+    background: #FFFFFF;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+border-radius: 2px;
+
+}
+.img-footer{
+    width: 48px;
+    height: 72px;
+}
+.dados-footer p{
+    margin-left: 14px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+}

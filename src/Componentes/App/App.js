@@ -3,6 +3,7 @@ import './style.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TelaSelecionarHorario from "../TelaSelecionarHorario/TelaSelecionarHorario.js";
 import TelaSelecionarAssento from "../TelaSelecionarAssento/TelaSelecionarAssento.js"
+import TelaSucesso from "../TelaSucesso/TelaSucesso.js"
 export default function App(){
     return (
         <>
@@ -13,7 +14,9 @@ export default function App(){
 		
 			<Routes>
 				<Route path="/" element={<TelaSelecionarFilmes />} />
-				{/* <Route path="/TelaPerguntas" element={<TelaPerguntas />}/> */}
+				<Route path="/sessoes/:idFilme" element={<TelaSelecionarHorario />}/>
+                <Route path="/assentos/:idSessao" element={<TelaSelecionarAssento />}/>
+                <Route path="/sucesso" element={<TelaSucesso />}/>
 			</Routes>
 		</BrowserRouter>
         </>
