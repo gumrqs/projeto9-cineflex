@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import SalaAssentos from './SalaAssentos';
+import FooterTelaAssentos from './FooterTelaAssentos';
 
 
 
@@ -11,19 +12,31 @@ export default function TelaSelecionarAssento(){
     const[listaAssentos, setListaAssentos]= useState([]);
     const[nome, setNome]= useState('');
     const[cpf, setCpf]= useState('');
+    const[dadosFilme, setDadosFilme]= useState([]);
+    const[horaFilme, setHoraFilme]= useState([]);
+    const[diaFilme, setDiaFilme]= useState([]);
+    const[assentosSelecionados, setAssentosSelecionados] = useState([]);
+    console.log(assentosSelecionados)
+
+
+
+		
+
 
    function handleForm(e){
-       e.preventDefault();
-       const body={
-           nome,
-           cpf
-       };
-       console.log(body, "o body aqui")
-
-       if(cpf.length<14 || cpf.length>14)
+    e.preventDefault();
+       const requisicao = axios.post("https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many", {
+            ids: assentosSelecionados,
+			name: nome,
+            cpf: cpf
+		});
+        requisicao.then(()=> {console.log("onSubmit")})
+        
+       if(cpf.length<11 || cpf.length>11)
        {
-           alert("Digite um cpf válido: xxx.xxx.xxx-xx");
+           alert("Digite um cpf válido: xxxxxxxxxxx");
        }
+       
 
    }
     
@@ -33,12 +46,16 @@ export default function TelaSelecionarAssento(){
         console.log(promessa, "prometido");
 		promessa.then(resposta => {
             setListaAssentos(resposta.data.seats);
-       /*  setUrlFooter(resposta.data); */
+            setDadosFilme(resposta.data.movie);
+            setHoraFilme(resposta.data);
+            setDiaFilme(resposta.data.day);
+
+
 	
 		});
         
 	}, []);
-    console.log(listaAssentos, "to aqui o")
+    
     
     return(
         <>
@@ -48,7 +65,7 @@ export default function TelaSelecionarAssento(){
                 </div>
             </div>
             <div className="sala">
-            {listaAssentos.map((assento,index)=> <SalaAssentos key={index} situacao={assento.isAvailable} assento={assento.name}/>)}
+            {listaAssentos.map((assento,index)=> <SalaAssentos key={index} situacao={assento.isAvailable} assento={+assento.name} idAssento={+assento.name} assentosSelecionados={assentosSelecionados} setAssentosSelecionados={setAssentosSelecionados}/>)}
             </div>
             <div className='legenda'>
                 <div className='circ'>
@@ -93,6 +110,9 @@ export default function TelaSelecionarAssento(){
                         <button className='guardar-dados'> <p>Reservar assento(s)</p></button>
                     </div>
                 </form>
+            </div>
+            <div>
+                 <FooterTelaAssentos titulo={dadosFilme.title} url={dadosFilme.posterURL} hora={horaFilme.name} dia={diaFilme.weekday}/>
             </div>
         </>
     )
