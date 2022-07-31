@@ -1,0 +1,72 @@
+.sala{
+    padding-left: 17px;
+    padding-right: 24px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+.poltronas{
+    margin-right: 7px;
+    width: 26px;
+    height: 26px;
+    border-radius: 12px;
+    background-color:#7B8B99 ;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+.poltronas-indisponivel{
+    margin-right: 7px;
+    width: 26px;
+    height: 26px;
+    border-radius: 12px;
+    background-color:#F7C52B ;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.poltronas p{
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+}
+.poltronas-indisponivel p{
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+}
+.poltronas-reservadas{
+    margin-right: 7px;
+    width: 26px;
+    height: 26px;
+    border-radius: 12px;
+    background-color:#8DD7CF ;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.poltronas-reservadas p{
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+}
