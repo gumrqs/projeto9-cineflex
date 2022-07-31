@@ -102,14 +102,14 @@
     justify-content: space-between;
     align-items: center;
 }
-.circ1 {
+.circ {
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.circ1 p{
+.circ p{
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -117,4 +117,73 @@
     line-height: 15px;
     color: #4E5A65;
 
+}
+.dados{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+}
+.input-formulario{
+    width: 100%;
+    margin-bottom: 7px;
+    
+}
+input{
+    padding-left: 24px;
+    padding-right: 24px;
+    box-sizing: border-box;
+
+   
+    background: #FFFFFF;
+    border: 1px solid #D5D5D5;
+    border-radius: 3px;
+    width: 327px;
+    height: 51px;
+    color: #AFAFAF
+}
+input :-moz-placeholder{
+    color: #AFAFAF;
+    margin-left:10px;
+
+
+}
+.titulo span{
+   
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+
+}
+.titulo {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 42px;
+}
+button{
+    background: #E8833A;
+    border-radius: 3px;
+    width: 225px;
+    height: 42px;
+    border: none;
+    margin-top: 57px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button p{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+    border: none;
 }
