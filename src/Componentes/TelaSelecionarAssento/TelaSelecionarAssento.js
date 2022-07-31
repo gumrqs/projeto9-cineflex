@@ -35,6 +35,24 @@ export default function TelaSelecionarAssento(){
             <div className="sala">
             {listaAssentos.map((assento,index)=> <SalaAssentos key={index} situacao={assento.isAvailable} assento={assento.name}/>)}
             </div>
+            <div className='legenda'>
+                <div className='circ1'>
+                    <div className='disponivel'>
+                    </div>
+                    <p>Selecionado</p>
+                </div>
+                <div className='circ1'>
+                    <div className='reservada'>
+                    </div>
+                    <p>Disponível</p>
+                </div>
+                <div className='circ1'>
+                    <div className='indisponivel'>
+                    </div>
+                    <p>Indisponível</p>
+                </div>
+
+            </div>
         </>
     )
 }
