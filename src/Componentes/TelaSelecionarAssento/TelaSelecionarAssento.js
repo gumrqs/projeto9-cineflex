@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import SalaAssentos from './SalaAssentos';
 import FooterTelaAssentos from './FooterTelaAssentos';
+import TelaSucesso from '../TelaSucesso/TelaSucesso';
 
 
 
@@ -17,8 +18,7 @@ export default function TelaSelecionarAssento(){
     const[diaFilme, setDiaFilme]= useState([]);
     const[assentosSelecionados, setAssentosSelecionados] = useState([]);
     const[assentosSelecionadosName, setAssentosSelecionadosName] = useState([]);
-    console.log(assentosSelecionadosName)
-       
+    
 
 
 		
@@ -28,11 +28,11 @@ export default function TelaSelecionarAssento(){
     e.preventDefault();
     if(cpf.length<11 || cpf.length>11 )
     {
-        alert("Digite um cpf válido: xxxxxxxxxxx");
+        alert("Digite um cpf válido, somente com números: xxxxxxxxxxx");
     }
     else{
         if(assentosSelecionadosName.length===0){
-            alert("selecione um acento ai")
+            alert("selecione um assento ai")
         } 
         else{
        const requisicao = axios.post("https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many", {
@@ -41,12 +41,6 @@ export default function TelaSelecionarAssento(){
             cpf: cpf
             
 		});
-        console.log( {
-            ids: assentosSelecionados,
-			name: nome,
-            cpf: cpf
-            
-		}, "o deus pfv")
         requisicao.catch(()=>console.log("deu erro"))
        requisicao.then(navigate(`/sucesso/${cpf}/${nome}/${assentosSelecionadosName}/${idSessao}`));
        setCpf('');
@@ -132,6 +126,7 @@ export default function TelaSelecionarAssento(){
             <div>
                  <FooterTelaAssentos titulo={dadosFilme.title} url={dadosFilme.posterURL} hora={horaFilme.name} dia={diaFilme.weekday}/>
             </div>
+
         </>
     )
 }

@@ -26,15 +26,7 @@
     text-align: left;
 
 }
-.dados-sessao p{
-    font-family: Roboto;
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 26px;
-    letter-spacing: 0.04em;
-    text-align: left;
 
-}
 .texto-final {
     font-family: Roboto;
     font-size: 22px;
@@ -67,4 +59,20 @@
     justify-content: center;
     margin: auto auto;
     text-decoration: none;
+    margin-top: 80px;
+}
+.texto-final{
+    width: 100%;
+}
+.dados-filme3{
+    width: 100%;
+}
+.texto-filme{
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+    text-align: left;
+
 }

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 import HorarioDasSessoes from "./HorarioDasSessoes";
 
 export default function Horarios({disponiveis, data, dia}){
@@ -12,7 +12,7 @@ export default function Horarios({disponiveis, data, dia}){
             {dia} - {data}
         </div>
         <div className="horas">
-        {disponiveis.map(horario => <HorarioDasSessoes horaSessoes={horario.name} idsessoes={horario.id}/>)}
+        {disponiveis.map((horario, index) => <HorarioDasSessoes key={index} horaSessoes={horario.name} idsessoes={horario.id}/>)}
         </div>
     </div>
     </>

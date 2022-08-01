@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios'
+import { useState } from 'react';
+
 
 export default function SalaAssentos({ assentosSelecionadosName, setAssentosSelecionadosName, assento, situacao, idAssento, setAssentosSelecionados, assentosSelecionados}){
     
@@ -27,8 +27,7 @@ function verificarAssento(resposta){
         const arrVerificarName = assentosSelecionadosName.filter(verificador2);
         const novArrayName=[...arrVerificarName]
         setAssentosSelecionadosName(novArrayName);
-        /* setArrAssentosSelecionados(novArray) */
-        console.log(novArrayName, "TO AQUI")
+
     }
     
 }
@@ -49,28 +48,52 @@ function verificador2(obj){
 
 }
 
-
+if(assento<10){
     return(
         <>
         {
             situacao == false
             ?
             <div onClick={()=> verificarAssento("indisponivel")} className="poltronas-indisponivel">
-                <p>{assento}</p>
+                <p>{`0${assento}`}</p>
             </div>
             : 
             verificandoAssento ==="selecionada"
                 ?
                 <div onClick={()=> verificarAssento("reservada")}className="poltronas-reservadas">
-                    <p>{assento}</p>
+                    <p>{`0${assento}`}</p>
                  </div>
             :
 
             <div onClick={()=> verificarAssento("clicado")} className={verificandoAssento}>
-                <p>{assento}</p>
+                <p>{`0${assento}`}</p>
             </div>
 
         }
         </>
     )
+} else {    
+    return(
+    <>
+    {
+        situacao == false
+        ?
+        <div onClick={()=> verificarAssento("indisponivel")} className="poltronas-indisponivel">
+            <p>{assento}</p>
+        </div>
+        : 
+        verificandoAssento ==="selecionada"
+            ?
+            <div onClick={()=> verificarAssento("reservada")}className="poltronas-reservadas">
+                <p>{assento}</p>
+             </div>
+        :
+
+        <div onClick={()=> verificarAssento("clicado")} className={verificandoAssento}>
+            <p>{assento}</p>
+        </div>
+
+    }
+    </>
+)}
 }
