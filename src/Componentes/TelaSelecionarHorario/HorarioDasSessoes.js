@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
 export default function HorarioDasSessoes({horaSessoes, idsessoes}){
-    let idSessoes= `/assentos/${idsessoes}`
+    let idSessoesx= `/assentos/${idsessoes}`
     return(
         <>
-            <Link to={idSessoes} className="horasecao">
+            <Link to={idSessoesx} className="horasecao">
             <div >{horaSessoes}</div>
             </Link>
         </>

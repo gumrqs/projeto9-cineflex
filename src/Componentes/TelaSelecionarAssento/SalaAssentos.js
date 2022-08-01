@@ -41,7 +41,7 @@ function verificador(obj){
     return(
         <>
         {
-            situacao == true
+            situacao == false
             ?
             <div onClick={()=> verificarAssento("indisponivel")} className="poltronas-indisponivel">
                 <p>{assento}</p>

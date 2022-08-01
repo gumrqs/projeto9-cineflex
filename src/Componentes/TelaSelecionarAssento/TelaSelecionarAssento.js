@@ -23,27 +23,39 @@ export default function TelaSelecionarAssento(){
 		
 
 
-   function handleForm(e){
+   function Vai(e){
     e.preventDefault();
        const requisicao = axios.post("https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many", {
             ids: assentosSelecionados,
 			name: nome,
             cpf: cpf
+            
 		});
-        requisicao.then(()=> {console.log("onSubmit")})
+        console.log( {
+            ids: assentosSelecionados,
+			name: nome,
+            cpf: cpf
+            
+		}, "o deus pfv")
+        requisicao.catch(()=>console.log("deu erro"))
+       
+        
+        
         
        if(cpf.length<11 || cpf.length>11)
        {
            alert("Digite um cpf válido: xxxxxxxxxxx");
        }
        
-
+    
+       setCpf('');
+       setNome('');
    }
     
 
 	useEffect(() => {
 		const promessa = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${idSessao}/seats`);
-        console.log(promessa, "prometido");
+        
 		promessa.then(resposta => {
             setListaAssentos(resposta.data.seats);
             setDadosFilme(resposta.data.movie);
@@ -65,7 +77,7 @@ export default function TelaSelecionarAssento(){
                 </div>
             </div>
             <div className="sala">
-            {listaAssentos.map((assento,index)=> <SalaAssentos key={index} situacao={assento.isAvailable} assento={+assento.name} idAssento={+assento.name} assentosSelecionados={assentosSelecionados} setAssentosSelecionados={setAssentosSelecionados}/>)}
+            {listaAssentos.map((assento,index)=> <SalaAssentos key={index} situacao={assento.isAvailable} assento={+assento.name} idAssento={+assento.id} assentosSelecionados={assentosSelecionados} setAssentosSelecionados={setAssentosSelecionados}/>)}
             </div>
             <div className='legenda'>
                 <div className='circ'>
@@ -85,7 +97,7 @@ export default function TelaSelecionarAssento(){
                 </div>
             </div>
             <div className='formulario'>
-                <form onSubmit={handleForm}>
+                <form onSubmit={Vai}>
                     <div className='dados'>
                         <div className='input-formulario'>
                             <div className='titulo'>
