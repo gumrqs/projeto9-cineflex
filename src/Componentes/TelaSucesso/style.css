@@ -35,6 +35,15 @@
     text-align: left;
 
 }
+.texto-final {
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+    text-align: left;
+
+}
 .dados-filme2{
     width: 57%;
     margin-bottom: 60px;

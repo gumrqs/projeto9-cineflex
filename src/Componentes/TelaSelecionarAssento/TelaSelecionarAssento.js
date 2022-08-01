@@ -16,8 +16,9 @@ export default function TelaSelecionarAssento(){
     const[horaFilme, setHoraFilme]= useState([]);
     const[diaFilme, setDiaFilme]= useState([]);
     const[assentosSelecionados, setAssentosSelecionados] = useState([]);
-    console.log(assentosSelecionados)
-
+    const[assentosSelecionadosName, setAssentosSelecionadosName] = useState([]);
+    console.log(assentosSelecionadosName)
+       
 
 
 		
@@ -25,6 +26,15 @@ export default function TelaSelecionarAssento(){
 
    function confirmarAssento(e){
     e.preventDefault();
+    if(cpf.length<11 || cpf.length>11 )
+    {
+        alert("Digite um cpf válido: xxxxxxxxxxx");
+    }
+    else{
+        if(assentosSelecionadosName.length===0){
+            alert("selecione um acento ai")
+        } 
+        else{
        const requisicao = axios.post("https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many", {
             ids: assentosSelecionados,
 			name: nome,
@@ -38,19 +48,15 @@ export default function TelaSelecionarAssento(){
             
 		}, "o deus pfv")
         requisicao.catch(()=>console.log("deu erro"))
-       requisicao.then(navigate(`/sucesso/${cpf}/${nome}/${assentosSelecionados}/${idSessao}`));
-        
-        
-        
-       if(cpf.length<11 || cpf.length>11)
-       {
-           alert("Digite um cpf válido: xxxxxxxxxxx");
-       }
-       
-    
+       requisicao.then(navigate(`/sucesso/${cpf}/${nome}/${assentosSelecionadosName}/${idSessao}`));
        setCpf('');
        setNome('');
+    }
    }
+   setCpf('');
+   setNome('');
+
+}
     
 
 	useEffect(() => {
@@ -77,7 +83,7 @@ export default function TelaSelecionarAssento(){
                 </div>
             </div>
             <div className="sala">
-            {listaAssentos.map((assento,index)=> <SalaAssentos key={index} situacao={assento.isAvailable} assento={+assento.name} idAssento={+assento.id} assentosSelecionados={assentosSelecionados} setAssentosSelecionados={setAssentosSelecionados}/>)}
+            {listaAssentos.map((assento,index)=> <SalaAssentos key={index} situacao={assento.isAvailable} assento={+assento.name} idAssento={+assento.id} assentosSelecionados={assentosSelecionados} setAssentosSelecionados={setAssentosSelecionados} setAssentosSelecionadosName={setAssentosSelecionadosName} assentosSelecionadosName={assentosSelecionadosName}/>)}
             </div>
             <div className='legenda'>
                 <div className='circ'>
@@ -112,7 +118,7 @@ export default function TelaSelecionarAssento(){
                         <div className='input-formulario'>
                             <div className='titulo'>
                                 <span>CPF do comprador</span>
-                                <input type="text" onChange={(e) => setCpf(e.target.value)}
+                                <input type="number" onChange={(e) => setCpf(e.target.value)}
                                     value={cpf}
                                     required
                                     placeholder='Digite seu CPF...'

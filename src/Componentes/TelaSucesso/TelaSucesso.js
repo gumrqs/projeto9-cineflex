@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 export default function TelaSucesso(){
     const {cpf,nome,assentosSelecionados, idSessao} = useParams();
     
-    const[filmeSessao, setFilmeSessao]= useState([]);
-    const[ingresso, setIngresso]= useState('');
     const[listaAssentos, setListaAssentos]= useState([]);
     const[dadosFilme, setDadosFilme]= useState([]);
     const[horaFilme, setHoraFilme]= useState([]);
@@ -46,13 +44,14 @@ export default function TelaSucesso(){
                     <div className='dados-sessao'>
                             Ingressos
                         <div className='dados-filme2'>
-                            <p>{dadosFilme.title} {diaFilme.date} {horaFilme.name}</p>
+                            <div className='texto-final'>Seu(s) Assento(s): {assentosSelecionados}</div>
                         </div>
                     </div>
                     <div className='dados-sessao'>
                         Comprador
                         <div className='dados-filme2'>
-                            <p>Nome:{nome} CPF:{cpf}</p>
+                            <div className='texto-final'>Nome:{nome}</div> 
+                            <div className='texto-final'>CPF:{cpf}</div>
                         </div>
                     </div>
                 </div>
