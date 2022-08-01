@@ -1,0 +1,61 @@
+.sucesso{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sucesso p{
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    color: #247A6B;
+
+}
+.texto {
+    width: 50%;
+}
+.dados-sessao{
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    text-align: left;
+
+}
+.dados-sessao p{
+    font-family: Roboto;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+    text-align: left;
+
+}
+.dados-filme2{
+    width: 57%;
+    margin-bottom: 60px;
+}
+.tela-sucesso{
+    width: 100%;
+    padding-left: 28px;
+    box-sizing: border-box;
+}
+.inicio{
+    background: #E8833A;
+    border-radius: 3px;
+    height: 42px;
+    width: 225px;
+    left: 74px;
+    top: 622px;
+    border-radius: 3px;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto auto;
+    text-decoration: none;
+}

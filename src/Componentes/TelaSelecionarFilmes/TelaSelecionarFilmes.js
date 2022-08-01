@@ -33,9 +33,3 @@ export default function TelaSelecionarFilmes(){
     )
 }
 
-
-        {/* <Link to="/TelaPerguntas">
-            <button className='botao-inicio'>
-                <p>Iniciar recall!</p>
-        </button>
-        </Link> */}

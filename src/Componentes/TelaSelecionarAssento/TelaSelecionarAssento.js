@@ -1,5 +1,5 @@
 import './style.css'
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import SalaAssentos from './SalaAssentos';
@@ -21,9 +21,9 @@ export default function TelaSelecionarAssento(){
 
 
 		
+    const navigate=useNavigate();
 
-
-   function Vai(e){
+   function confirmarAssento(e){
     e.preventDefault();
        const requisicao = axios.post("https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many", {
             ids: assentosSelecionados,
@@ -38,7 +38,7 @@ export default function TelaSelecionarAssento(){
             
 		}, "o deus pfv")
         requisicao.catch(()=>console.log("deu erro"))
-       
+       requisicao.then(navigate(`/sucesso/${cpf}/${nome}/${assentosSelecionados}/${idSessao}`));
         
         
         
@@ -97,7 +97,7 @@ export default function TelaSelecionarAssento(){
                 </div>
             </div>
             <div className='formulario'>
-                <form onSubmit={Vai}>
+                <form onSubmit={confirmarAssento}>
                     <div className='dados'>
                         <div className='input-formulario'>
                             <div className='titulo'>
